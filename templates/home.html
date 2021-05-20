@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IX=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body{text-align : center}
+    </style>
+</head>
+<body>
+    <h1>zoe's diary</h1>
+    <h3>number of diaries : {{num}} </h3>
+    <div>
+        <a href="{%url 'index'%}">목차로 가기</a>
+    </div>
+    <div>
+        <a href="{%url 'new'%}"> write diary</a>
+    </div>
+    <div class="container">
+    {% for blog in blogs %}
+        <div>
+        <h3>{{blog.title}}</h3>
+        
+        {{blog.writer}} 
+        {{blog.body}}<a href = "{%url 'detail' blog.id%}">...more</a>
+        </div>
+    {% endfor %}
+
+
+</body>
+</html>
